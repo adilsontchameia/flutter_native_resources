@@ -1,16 +1,35 @@
-# flutter_native_resources
+# Flutter_native_resources
 
-A new Flutter project.
+Get know how to use Flutter native resources in a clean way using Riverpod
 
-## Getting Started
+## You will learn about:
+# Application status
+Resumed
+Paused
+Detached
+Inactive
+React based on application status
+Permission Management
+Camera
+Location
+Body Sensors
+Gallery
+Gyroscope
+Accelerometer
+Magnetometer
+Providers and Streams
+Gyroscope-based Move Widget
+Compass
+Compass animations
 
-This project is a starting point for a Flutter application.
+Any other required permissions
+Riverpod and centralization of permits.
 
-A few resources to get you started if this is your first Flutter project:
+# Special attention: In the Compass module, learn how to build a compass app with smooth animation.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="458" alt="Screenshot 2024-04-15 at 3 32 42 PM" src="https://github.com/adilsontchameia/flutter_native_resources/assets/64656900/1db72d90-6bb0-4f5d-9cd1-d19a314cad64">
+<img width="458" alt="Screenshot 2024-04-15 at 3 32 32 PM" src="https://github.com/adilsontchameia/flutter_native_resources/assets/64656900/06431a57-cc6e-4f97-826c-7ad6df64f0d7">
+<img width="458" alt="Screenshot 2024-04-15 at 3 32 24 PM" src="https://github.com/adilsontchameia/flutter_native_resources/assets/64656900/05535aaa-0ad4-4ce2-b516-9af2e2b356f7">
+
+@special_credit: devtalles
