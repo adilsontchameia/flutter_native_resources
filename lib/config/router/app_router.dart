@@ -1,3 +1,4 @@
+import 'package:flutter_native_resources/presentation/screens/pokemons/pokemons_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../presentation/screens/screen.dart';
@@ -33,6 +34,10 @@ final router = GoRouter(routes: [
   GoRoute(
     path: '/magnetometer',
     builder: (context, state) => const MagnetometerScreen(),
+  ),
+  GoRoute(
+    path: '/pokemons',
+    builder: (context, state) => const PokemonsScreen(),
   ),
 
   GoRoute(
