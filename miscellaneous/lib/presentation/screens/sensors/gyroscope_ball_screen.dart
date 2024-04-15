@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../providers/sensors/ gyroscope_provider.dart';
+
 class GyroscopeBallScreen extends ConsumerWidget {
   const GyroscopeBallScreen({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
-    //final gyroscope$ = ref.watch( gyroscopeProvider );
+    final gyroscope$ = ref.watch(gyroscopeProvider);
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Giroscópio'),
         ),
-        body: Container()
-
-        // SizedBox.expand(
-        //   child: gyroscope$.when(
-        //     data: (value) => MovingBall(x: value.x, y: value.y),
-        //     error: (error, stackTrace) => Text('$error'),
-        //     loading: () => const CircularProgressIndicator(),
-        //   ),
-        // )
-        );
+        body: SizedBox.expand(
+          child: gyroscope$.when(
+            data: (value) => MovingBall(x: value.x, y: value.y),
+            error: (error, stackTrace) => Text('$error'),
+            loading: () => const CircularProgressIndicator(),
+          ),
+        ));
   }
 }
 
@@ -33,7 +32,8 @@ class MovingBall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
+
     double screenWidth = size.width;
     double screenHeight = size.height;
 
@@ -44,11 +44,12 @@ class MovingBall extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         AnimatedPositioned(
-            left: (currentYPos - 25) + (screenWidth / 2),
-            top: (currentXPos - 25) + (screenHeight / 2),
-            curve: Curves.easeInOut,
-            duration: const Duration(milliseconds: 1000),
-            child: const Ball()),
+          left: (currentYPos - 25) + (screenWidth / 2),
+          top: (currentXPos - 25) + (screenHeight / 2),
+          curve: Curves.easeInOut,
+          duration: const Duration(milliseconds: 1000),
+          child: const Ball(),
+        ),
         Text(
           '''
       X:$x,

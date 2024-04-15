@@ -14,16 +14,16 @@ class MenuItem {
 }
 
 final menuItems = <MenuItem>[
-  MenuItem('Giróscopio', Icons.downloading, '/gyroscope'),
-  MenuItem('Acelerómetro', Icons.speed, '/accelerometer'),
-  MenuItem('Magnetometro', Icons.explore_outlined, '/magnetometer'),
+  MenuItem('Gyroscope', Icons.downloading, '/gyroscope'),
+  MenuItem('Acelerometer', Icons.speed, '/accelerometer'),
+  MenuItem('Magnetometer', Icons.explore_outlined, '/magnetometer'),
   MenuItem(
-    'Giróscopio Ball',
+    'Gyroscope Ball',
     Icons.sports_baseball_outlined,
     '/gyroscope-ball',
   ),
   MenuItem(
-    'Brújula',
+    'Compass',
     Icons.explore,
     '/compass',
   ),

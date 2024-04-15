@@ -1,17 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_native_resources/my_app/app.dart';
+import 'package:flutter_native_resources/presentation/screens/permissions/permissions_screen.dart';
+
+import '../../providers/providers.dart';
 
 class CompassScreen extends ConsumerWidget {
   const CompassScreen({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
-    // final locationGranted = ref.watch( permissionsProvider ).locationGranted;
-    // final compassHeading$ = ref.watch( compassProvider );
+    final locationGranted = ref.watch(permissionProvider).locationGranted;
+    final compassHeading$ = ref.watch(compassProvider);
 
-    // if ( !locationGranted ) {
-    //   return const AskLocationScreen();
-    // }
+    if (!locationGranted) {
+      return const PermissionsScreen();
+    }
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -22,16 +24,18 @@ class CompassScreen extends ConsumerWidget {
             ),
             backgroundColor: Colors.black,
             iconTheme: const IconThemeData(color: Colors.white)),
-        body: Container()
-
-        // Center(
-        //   child: compassHeading$.when(
-        //     data: (heading) => Compass( heading: heading ?? 0 ),
-        //     error: (error, stackTrace) => Text('$error', style: const TextStyle( color: Colors.white )),
-        //     loading: () => const CircularProgressIndicator(),
-        //   ),
-        // )
-        );
+        body: Center(
+          child: compassHeading$.when(
+            data: (heading) => Compass(
+              heading: heading ?? 0,
+            ),
+            error: (error, stackTrace) => Text(
+              '$error',
+              style: const TextStyle(color: Colors.white),
+            ),
+            loading: () => const CircularProgressIndicator(),
+          ),
+        ));
   }
 }
 
@@ -74,35 +78,31 @@ class _CompassState extends State<Compass> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Text('${widget.heading.ceil()}', style: const TextStyle(color: Colors.white, fontSize: 30)),
-
-        // const SizedBox(height: 20),
-
         Stack(
           alignment: Alignment.center,
           children: [
+            //! Without smooth animation
             // Image.asset('assets/images/compass/quadrant-1.png'),
-
             // Transform.rotate(
             //   angle: (heading * (pi / 180) * -1),
             //   child: Image.asset('assets/images/compass/needle-1.png'),
             // ),
-
             // AnimatedRotation(
             //   curve: Curves.easeOut,
             //   turns: getTurns(),
             //   duration: const Duration( seconds: 1 ),
             //   child: Image.asset('assets/images/compass/needle-1.png'),
             // ),
+            //! Without smooth animation (commented above)
 
             AnimatedRotation(
               curve: Curves.easeOut,
               turns: getTurns(),
               duration: const Duration(seconds: 1),
-              child: Image.asset('assets/images/compass/quadrant-1.png'),
+              child: Image.asset('assets/quadrant-1.png'),
             ),
 
-            Image.asset('assets/images/compass/needle-1.png'),
+            Image.asset('assets/needle-1.png'),
           ],
         )
       ],
