@@ -1,7 +1,7 @@
+import 'package:flutter_native_resources/features/native_resources/permissions/permissions_screen.dart';
 import 'package:flutter_native_resources/my_app/app.dart';
-import 'package:flutter_native_resources/presentation/screens/permissions/permissions_screen.dart';
 
-import '../../providers/providers.dart';
+import '../presentation/providers/providers.dart';
 
 class CompassScreen extends ConsumerWidget {
   const CompassScreen({super.key});

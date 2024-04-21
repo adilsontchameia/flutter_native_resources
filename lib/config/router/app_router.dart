@@ -1,12 +1,11 @@
-import 'package:flutter_native_resources/presentation/screens/pokemons/pokemons_screen.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../presentation/screens/screen.dart';
-import '../../presentation/screens/sensors/acelerometer_screen.dart';
-import '../../presentation/screens/sensors/compass_screen.dart';
-import '../../presentation/screens/sensors/gyroscope_ball_screen.dart';
-import '../../presentation/screens/sensors/gyroscope_screen.dart';
-import '../../presentation/screens/sensors/magnetometer_screen.dart';
+import '../../features/native_resources/screen.dart';
+import '../../features/native_resources/sensors/acelerometer_screen.dart';
+import '../../features/native_resources/sensors/compass_screen.dart';
+import '../../features/native_resources/sensors/gyroscope_ball_screen.dart';
+import '../../features/native_resources/sensors/gyroscope_screen.dart';
+import '../../features/native_resources/sensors/magnetometer_screen.dart';
 
 final router = GoRouter(routes: [
   //! General
@@ -36,9 +35,16 @@ final router = GoRouter(routes: [
     builder: (context, state) => const MagnetometerScreen(),
   ),
   GoRoute(
-    path: '/pokemons',
-    builder: (context, state) => const PokemonsScreen(),
-  ),
+      path: '/pokemons',
+      builder: (context, state) => const PokemonsScreen(),
+      routes: [
+        GoRoute(
+            path: ':id',
+            builder: (context, state) {
+              final id = state.pathParameters['id'];
+              return PokemonScreen(pokemonId: id ?? 1.toString());
+            })
+      ]),
 
   GoRoute(
     path: '/gyroscope-ball',

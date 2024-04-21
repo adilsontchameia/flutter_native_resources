@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_resources/presentation/providers/sensors/%20gyroscope_provider.dart';
+import 'package:flutter_native_resources/features/native_resources/presentation/providers/sensors/%20gyroscope_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class GyroscopeScreen extends ConsumerWidget {

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../providers/sensors/acelerometer_providers.dart';
+import '../presentation/providers/providers.dart';
 
-class AccelerometerScreen extends ConsumerWidget {
-  const AccelerometerScreen({super.key});
+class MagnetometerScreen extends ConsumerWidget {
+  const MagnetometerScreen({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
-    final accelerometer$ = ref.watch(accelerometerUserProvider);
+    final magnetometer$ = ref.watch(magnetometerProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Acelerómetro'),
+        title: const Text('Magnetometer'),
       ),
       body: Center(
-        child: accelerometer$.when(
+        child: magnetometer$.when(
             data: (value) => Text(
-                  value.toString(),
+                  value.x.toString(),
                   style: const TextStyle(fontSize: 30),
                 ),
             error: (error, stackTrace) => Text('$error'),
