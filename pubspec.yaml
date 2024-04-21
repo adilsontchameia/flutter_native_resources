@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.6
+  dio: ^5.4.3+1
   flutter:
     sdk: flutter
   flutter_compass: ^0.8.0
@@ -37,6 +38,7 @@ dependencies:
   google_fonts: any
   permission_handler: ^11.3.1
   sensors_plus: ^5.0.1
+  share_plus: ^8.0.3
 
 dev_dependencies:
   flutter_lints: ^3.0.0
