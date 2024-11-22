@@ -1,4 +1,4 @@
-package com.example.flutter_native_resources
+package com.adilsontchameia.native
 
 import io.flutter.embedding.android.FlutterActivity
 
